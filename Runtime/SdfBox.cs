@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Renderer))]
-public class SDFShapeBase : MonoBehaviour
+public class SdfBox : MonoBehaviour
 {
     [Header("SDF Parameters")]
     [ColorUsage(true, true)]
@@ -40,7 +40,7 @@ public class SDFShapeBase : MonoBehaviour
             UpdateMaterialProperties();
         }
 #endif
-    }
+    } 
 
     private void InitializeReferences()
     {
