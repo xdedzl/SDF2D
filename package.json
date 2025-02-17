@@ -1,0 +1,11 @@
+{
+    "name": "com.xdedzl.sdf2d",
+    "displayName": "sdf2d",
+    "description": "sdf2d",
+    "version": "1.0.0",
+    "unity": "2018.3",
+    "license": "Apache",
+    "dependencies": {
+        
+    }
+}
