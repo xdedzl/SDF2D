@@ -11,12 +11,15 @@ public class SdfBox : MonoBehaviour
     [Range(0, 0.5f)]
     public float edgeWidth = 0.1f;
     [Range(0, 1)]
-    public float radius = 0.5f;
+    public float lengthX = 1f;
+    [Range(0, 1)]
+    public float lengthY = 1f;
 
     private static readonly int MainColorID = Shader.PropertyToID("_MainColor");
     private static readonly int EdgeColorID = Shader.PropertyToID("_EdgeColor");
     private static readonly int EdgeWidthID = Shader.PropertyToID("_EdgeWidth");
-    private static readonly int RadiusID = Shader.PropertyToID("_Radius");
+    private static readonly int LengthXID = Shader.PropertyToID("_Length_X");
+    private static readonly int LengthYID = Shader.PropertyToID("_Length_Y");
 
     private Renderer _renderer;
     private MaterialPropertyBlock _propBlock;
@@ -24,6 +27,7 @@ public class SdfBox : MonoBehaviour
     void Awake()
     {
         InitializeReferences();
+        UpdateMaterialProperties();
     }
 
     void OnValidate()
@@ -61,7 +65,8 @@ public class SdfBox : MonoBehaviour
         _propBlock.SetColor(MainColorID, mainColor);
         _propBlock.SetColor(EdgeColorID, edgeColor);
         _propBlock.SetFloat(EdgeWidthID, edgeWidth);
-        _propBlock.SetFloat(RadiusID, radius);
+        _propBlock.SetFloat(LengthXID, lengthX);
+        _propBlock.SetFloat(LengthYID, lengthY);
 
         _renderer.SetPropertyBlock(_propBlock);
     }
@@ -71,7 +76,8 @@ public class SdfBox : MonoBehaviour
         mainColor = Color.white;
         edgeColor = Color.black;
         edgeWidth = 0.1f;
-        radius = 0.5f;
+        lengthX = 1.0f;
+        lengthY = 1.0f;
         UpdateMaterialProperties();
     }
 }
